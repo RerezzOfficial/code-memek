@@ -1,0 +1,13 @@
+{
+  "name": "visitor-tracker",
+  "version": "1.0.0",
+  "description": "A simple visitor tracker website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "0.0.1-security"
+  }
+}
