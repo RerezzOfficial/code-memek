@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Tracker</title>
+</head>
+<body>
+  <h1>Welcome to the Visitor Tracker!</h1>
+  <button id="visit">Record Visit</button>
+  <ul id="visitors"></ul>
+
+  <script>
+    document.getElementById('visit').addEventListener('click', async () => {
+      const response = await fetch('/api/visit');
+      const data = await response.json();
+      const visitorList = document.getElementById('visitors');
+      visitorList.innerHTML = '';
+      data.visitors.forEach(visitor => {
+        const li = document.createElement('li');
+        li.textContent = `IP: ${visitor.ip}, Time: ${visitor.timestamp}`;
+        visitorList.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
